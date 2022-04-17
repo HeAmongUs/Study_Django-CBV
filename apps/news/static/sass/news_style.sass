@@ -1,0 +1,215 @@
+$grey_25: rgba(201, 201, 201, 0.25)
+$grey_hover: rgba(170, 170, 170, 0.5)
+$color_dark_blue: #21728b
+$color_blue: #15809F
+$color_tag: #2540AE
+
+
+.search
+  background-color: $grey_25
+  &-input
+    display: flex
+  &__input
+    width: 600px
+    height: 30px
+    font-size: 16px
+    padding-left: 10px
+    &:hover
+      transition: .5s
+      border-color: $color_blue
+    &:focus
+      border-color: $color_blue
+
+  &-submit
+    display: flex
+    flex: 0 0 100px
+
+    &-button
+      width: 100%
+      text-align: center
+      color: #fff
+      border-color: $color_blue
+      background-color: $color_blue
+      height: 30px
+      &:hover
+        transition: 0.5s
+        cursor: pointer
+        background-color: rgba($color_blue, 0.65)
+        border-color: rgba($color_blue, 0.8)
+
+  &-group
+    display: flex
+  &-block
+    margin: 20px 0
+    width: 100%
+    &-form
+      display: flex
+      flex: 1 0 auto
+      width: auto
+    &__form
+      display: flex
+      width: 100%
+
+
+  &-result
+    &-info
+      margin: 25px 0
+
+      &__title
+        font-size: 32px
+
+
+
+.order-block
+  &__item
+    margin-bottom: 10px
+    display: inline-block
+    position: relative
+    &:not(:first-child)
+      padding-left: 25px
+    &:after
+      display: block
+      content: ""
+      position: relative
+      top: 10px
+      height: 3px
+      background-color: $color_dark_blue
+
+
+.filter
+  padding: 0
+  display: inline-block
+  vertical-align: top
+  &-preference
+    width: 220px
+    padding: 20px
+    background-color: $grey_25
+
+    &__links
+
+    &-group
+      padding-bottom: 20px
+      width: auto
+
+      &-title
+        font-weight: 700
+        font-size: 14px
+        margin-bottom: 6px
+
+      &__items
+        transition: all .2s ease-out
+        overflow: hidden
+
+      &-list
+        list-style: none
+        &__item
+          margin: 1px 0
+          display: table
+          width: 100%
+          text-decoration: none
+          cursor: pointer
+          &:hover
+            background-color: $grey_hover
+            transition: .5s
+
+          &__name
+            display: table-cell
+            max-width: 115px
+            font-size: 14px
+            line-height: 1.3333
+            padding: 4px 0 4px 10px
+            color: #000
+
+          &__value
+            color: #999
+            font-size: 14px
+            display: table-cell
+            padding-right: 10px
+            text-align: right
+
+
+        &__link
+          display: table-row
+          text-decoration: none
+          cursor: pointer
+          color: #666
+
+
+.news
+  display: flex
+  &-list
+    padding: 0 10px 0 20px
+    display: inline-block
+    &-item
+      &-tag
+        padding-bottom: 10px
+      &__tag
+        &__link
+          color: $color_tag
+          &:hover
+            transition: .2s
+            color: rgba(red, 0.6)
+          &:not(:first-child)
+            padding-left: 5px
+      &-author
+        display: flex
+        padding-bottom: 5px
+        &__avatar
+          display: flex
+          width: 30px
+          height: 30px
+          border-radius: 50%
+        &-name
+          display: flex
+          padding-left: 10px
+          align-items: center
+      &-datetime
+        display: flex
+        align-items: center
+        padding-left: 10px
+      &__datetime
+      &-title
+        padding-bottom: 5px
+
+    &__item
+      border: 1px solid $color_blue
+      padding: 5px 10px
+      margin-bottom: 10px
+      &__title
+        font-size: 20px
+        color: rgba($color_blue, 0.85)
+        display: inline
+        &:hover
+          cursor: pointer
+          transition: .2s
+          color: rgba(red, 0.7)
+      &-text
+  &-instance
+    display: none
+
+  &-detail
+    padding: 50px 0
+    display: flex
+    &-content
+      width: 700px
+    &__item
+      &-title
+        margin: 0 0 15px
+      &__title
+        font-size: 24px
+      &-tags
+        margin: 0 0 15px
+
+      &-text
+        margin: 0 0 15px
+
+      &-other
+        margin: 0 0 15px
+
+
+
+@media(max-width: 992px)
+  .search
+    &__input
+      width: 400px
+

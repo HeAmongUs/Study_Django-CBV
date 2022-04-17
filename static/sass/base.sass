@@ -1,0 +1,132 @@
+$back-ground_color: #fdfdfd
+$faded_95: rgba(247, 247, 247, 0.9)
+$color_blue: #70d0ec
+$color_orange: #FF8E1B
+$color_dark: rgba(41, 43, 44, 0.9)
+$color_dark_blue: #21728b
+
+$gradient_orange_blue: linear-gradient(45deg, $color_orange 33%, $color_blue 66%)
+$gradient_blue_orange: linear-gradient(45deg, $color_blue 33%, $color_orange 66%)
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: Roboto, sans-serif
+  text-decoration: none
+  list-style: none
+
+body
+  background-color: $back-ground_color
+
+
+.nav
+  display: flex
+  justify-content: space-between
+
+  &-menu
+    display: flex
+    &-logo
+      display: flex
+      align-items: center
+      &__link
+        display: flex
+    &__img
+      width: 25px
+      height: 25px
+
+
+
+  &-login
+    display: flex
+
+
+
+
+.links
+  &-list
+    display: flex
+    &__item
+      display: flex
+      align-items: center
+      justify-items: center
+      justify-content: center
+      &__link
+        position: relative
+        color: transparent
+        -webkit-text-stroke: 1px $faded_95
+        font-size: 1.5em
+        text-decoration: none
+        display: inline-block
+        padding: 10px 20px
+        font-weight: 900
+        overflow: hidden
+        &:hover
+          color: $faded_95
+          -webkit-text-stroke: 1px #000
+          transition: 0.5s
+        &-active
+          position: relative
+          padding: 10px 20px
+          font-size: 1.5em
+          text-decoration: none
+          display: inline-block
+          font-weight: 900
+          overflow: hidden
+          color: $faded_95
+          -webkit-text-stroke: 1px $color_dark
+          &:hover
+            color: rgba($faded_95, 0.75)
+            transition: .5s
+
+
+
+.container
+  margin: 0 auto
+  max-width: 1020px
+
+.header
+  margin: 0
+  background-color: $color_dark
+  top: 0
+  left: 0
+  width: 100%
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2)
+  &-logo
+    display: flex
+    align-items: center
+
+  & .logo
+    position: relative
+    display: flex
+    background: $gradient_orange_blue
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    font-size: 2em
+    text-decoration: none
+    font-weight: 800
+    &:hover
+      text-shadow: 0 0 rgba( 247, 247, 247, 0.35)
+      transition: .5s
+
+.content
+
+@media screen and (max-width: 1420px)
+  .container
+    max-width: 1020px
+
+
+@media(max-width: 1200px)
+  .container
+    max-width: 970px
+
+@media(max-width: 992px)
+  .container
+    max-width: 750px
+
+@media(max-width: 767px)
+  .container
+    max-width: 550px
+
+
+

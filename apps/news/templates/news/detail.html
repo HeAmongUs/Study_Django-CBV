@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+        <link rel="stylesheet" href="{%  static 'sass/news_style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+
+<div class="news-detail">
+    <div class="news-detail-content">
+        <div class="news-detail__item">
+            <div class="news-detail__item-title">
+                <h3 class="news-detail__item__title">{{ news.title }}</h3>
+            </div>
+            <div class="news-detail__item-tags">
+                <h4 class="news-detail__item__tag">
+                    {% for tag in news.tags.all %}
+                    <a class="news-detail__item__tag__link" href="{% url "news_by_tag" tag.slug %}">
+                    #{{ tag.name }}
+                    </a>
+                    {% endfor %}
+                </h4>
+            </div>
+            <div class="news-detail__item-text">
+                <p class="news-detail__item__text">
+                    {{ news.text }}
+                </p>
+
+            </div>
+
+            <div class="news-detail__item-other">
+                <p>Note by {{ news.author }}</p>
+                <p>Created {{ news.datetime_create }}</p>
+                <p>Update {{ news.datetime_update }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="comment">
+    <ul class="comment-list">
+{% for comment in comments %}
+        <div class="comment-item">
+            <div class="comment__item">
+
+
+            <p class="info">
+                Comment {{ forloop.counter }} by {{ comment.author }}      {{ comment.created }}
+            </p>
+            {{ comment.text|linebreaks }}
+        </div> {% empty %}  <p>There are no comments yet.</p>
+    </div>
+{% endfor %}
+    </ul>
+        <form action="{% url 'comment_create' %}" method="post">
+            <input class="news-instance" type="text" name="news_slug" value="{{ news.slug }}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить</button>
+        </form>
+        </div>
+</div>
+{% endblock %}

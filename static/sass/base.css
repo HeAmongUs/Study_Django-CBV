@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  text-decoration: none;
+  list-style: none; }
+
+body {
+  background-color: #fdfdfd; }
+
+.nav {
+  display: flex;
+  justify-content: space-between; }
+  .nav-menu {
+    display: flex; }
+    .nav-menu-logo {
+      display: flex;
+      align-items: center; }
+      .nav-menu-logo__link {
+        display: flex; }
+    .nav-menu__img {
+      width: 25px;
+      height: 25px; }
+  .nav-login {
+    display: flex; }
+
+.links-list {
+  display: flex; }
+  .links-list__item {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center; }
+    .links-list__item__link {
+      position: relative;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(247, 247, 247, 0.9);
+      font-size: 1.5em;
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px 20px;
+      font-weight: 900;
+      overflow: hidden; }
+      .links-list__item__link:hover {
+        color: rgba(247, 247, 247, 0.9);
+        -webkit-text-stroke: 1px #000;
+        transition: 0.5s; }
+      .links-list__item__link-active {
+        position: relative;
+        padding: 10px 20px;
+        font-size: 1.5em;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 900;
+        overflow: hidden;
+        color: rgba(247, 247, 247, 0.9);
+        -webkit-text-stroke: 1px rgba(41, 43, 44, 0.9); }
+        .links-list__item__link-active:hover {
+          color: rgba(247, 247, 247, 0.75);
+          transition: 0.5s; }
+
+.container {
+  margin: 0 auto;
+  max-width: 1020px; }
+
+.header {
+  margin: 0;
+  background-color: rgba(41, 43, 44, 0.9);
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); }
+  .header-logo {
+    display: flex;
+    align-items: center; }
+  .header .logo {
+    position: relative;
+    display: flex;
+    background: linear-gradient(45deg, #FF8E1B 33%, #70d0ec 66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2em;
+    text-decoration: none;
+    font-weight: 800; }
+    .header .logo:hover {
+      text-shadow: 0 0 rgba(247, 247, 247, 0.35);
+      transition: 0.5s; }
+
+@media screen and (max-width: 1420px) {
+  .container {
+    max-width: 1020px; } }
+@media(max-width: 1200px) {
+  .container {
+    max-width: 970px; } }
+@media(max-width: 992px) {
+  .container {
+    max-width: 750px; } }
+@media(max-width: 767px) {
+  .container {
+    max-width: 550px; } }
+
+/*# sourceMappingURL=base.css.map */

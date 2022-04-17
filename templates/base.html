@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%  static 'sass/base.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/logo.ico' %}" type="image/x-icon">
+    {% block head %}{% endblock %}
+    <meta name="viewpoint" content="width=device-width">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-menu">
+                    <div class="nav-menu-logo">
+                        <a href="{% url 'news' %}" class="nav-menu-logo__link">
+                            <img class="nav-menu__img" src="{% static 'images/NavLogo.jpg' %}" alt=""></a>
+                    </div>
+                <div class="nav-menu-links">
+                    <ul class="links-list">
+                        {% for item in menu %}
+                        <li class="links-list__item">
+                            <a href="{% url item.url_name %}"
+                               {% if item.title != title %}
+                               data-text="{{ item.title }}"
+                               {% endif %}
+                               class="links-list__item__link
+                               {% if item.title == title %} links-list__item__link-active
+                               {% endif %}">
+                                {{ item.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+
+                </div>
+                 <div class="nav-login">
+                    <ul class="links-list">
+                    {% if request.user.is_authenticated %}
+                        <li class="links-list__item">
+                            <div class="nav-menu-logo">
+                                <a class="nav-menu-logo__link" href="{{ request.user.profile.get_absolute_url }}">
+                                    <img class="nav-menu__img" src="{% static 'images/NavLogo.jpg'%}" alt="">
+                                </a>
+                                <a href="{{ request.user.profile.get_absolute_url }}" class="links-list__item__link links-list__item__link-active">{{ user.username }} </a>
+                            </div>
+                        </li>
+                        <li class="links-list__item">
+                            <a href="{% url 'logout' %}" class="links-list__item__link">Logout </a>
+                        </li>
+                    {% else %}
+                        <li class="links-list__item">
+                            <a href="{% url 'login' %}" class="links-list__item__link">Sign-in </a>
+                        </li>
+                        <li class="links-list__item">
+                            <a href="{% url 'registration' %}" class="links-list__item__link">Sign-up</a>
+                        </li>
+                    {% endif %}
+                    </ul>
+                 </div>
+
+            </nav>
+        </div>
+    </header>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+</body>
+</html>

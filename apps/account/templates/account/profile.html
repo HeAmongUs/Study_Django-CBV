@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+        <link rel="stylesheet" href="{%  static 'sass/news_style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="profile-box">
+        <h1>Profile Page</h1>
+        <h2>{{ profile }}</h2>
+    </div>
+
+    <div class="news-list">
+        <ul class="news__list">
+        {% for n in news %}
+            <li class="news-list__item">
+                <div class="news-list-item">
+                    <div class="news-list-item-author">
+                        <div class="news-list-item-author-avatar">
+                            <a href="{{ n.author.profile.get_absolute_url }}" class="news-list-item-author__link">
+                                <img class="news-list-item-author__avatar" src="{% static 'images/NavLogo.jpg' %}" alt="">
+                            </a>
+                        </div>
+                        <div class="news-list-item-author-name">
+                          <a href="{{ n.author.profile.get_absolute_url }}" class="news-list-item-author__link">
+                            <p class="news-list-item-author__name">
+                                {{ n.author }}
+                            </p>
+                          </a>
+                        </div>
+                        <div class="news-list-item-datetime">
+                            <p class="news-list-item__datetime">
+                                {{ n.datetime_create }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="news-list-item-title">
+                        <a href="{{ n.get_absolute_url }}"><h3 class="news-list__item__title">{{ n.title }}</h3></a>
+                    </div>
+                    <div class="news-list-item-tag">
+                        <h4 class="news-list-item__tag">
+                            {% for tag in n.tags.all %}
+                            <a class="news-list-item__tag__link" href="{% url 'news_by_tag' tag.slug %}">
+                            #{{ tag.name }}
+                            </a>
+                            {% endfor %}
+                        </h4>
+                    </div>
+                    <p>{{ n.text }}</p>
+                    <p>Last update on {{ n.datetime_update }}</p>
+
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    </div>
+
+</div>
+{% endblock %}
